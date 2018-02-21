@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportsTable extends Migration
+class CreateVacationPartimesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('vacation_partimes', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date');
-            $table->text('today_content');
-            $table->text('tomorrow_content');
-            $table->text('problem');
+            $table->text('reason');
+            $table->dateTime('from');
+            $table->dateTime('to');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -32,6 +31,6 @@ class CreateReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('vacation_partimes');
     }
 }

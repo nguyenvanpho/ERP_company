@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVacationsTable extends Migration
+class CreateOvertimeDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateVacationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vacations', function (Blueprint $table) {
+        Schema::create('overtime_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date');
-            $table->text('reason');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('overtime_id')->unsigned();
+            $table->dateTime('from');
+            $table->dateTime('to');
+            $table->foreign('overtime_id')->references('id')->on('overtimes');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateVacationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vacations');
+        Schema::dropIfExists('overtime_details');
     }
 }
