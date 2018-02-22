@@ -18,6 +18,7 @@ class CreateVacationPartimesTable extends Migration
             $table->text('reason');
             $table->dateTime('from');
             $table->dateTime('to');
+            $table->softDeletes();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

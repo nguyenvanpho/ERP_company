@@ -18,6 +18,7 @@ class CreateOvertimeDetailsTable extends Migration
             $table->integer('overtime_id')->unsigned();
             $table->dateTime('from');
             $table->dateTime('to');
+            $table->softDeletes();
             $table->foreign('overtime_id')->references('id')->on('overtimes');
             $table->timestamps();
         });
