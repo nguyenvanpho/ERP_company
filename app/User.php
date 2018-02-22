@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function attendsions(){
+        return $this->hasMany('App\Attendsion','user_id','id');
+    }
+
+    public function vacationFullTimes(){
+        return $this->hasMany('App\VacationFullTime','user_id','id');
+    }
+
+    public function vacationPartTimes(){
+        return $this->hasMany('App\VacationPartTime','user_id','id');
+    }
+
+    public function reports(){
+        return $this->hasMany('App\Report','user_id','id');
+    }
+
+    public function overTimes(){
+        return $this->hasMany('App\Overtime','user_id','id');
+    }       
 }

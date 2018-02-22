@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Report extends Model
+class VacationFullTime extends Model
 {
-    protected $table = 'reports';
+    protected $table = 'vacation_fulltimes';
 
     public function user(){
     	return $this->belongsTo('App\User','user_id','id');
